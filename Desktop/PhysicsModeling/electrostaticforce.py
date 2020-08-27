@@ -54,34 +54,34 @@ class Charge(sphere):
 
 
 
-	
-#Initial set-up of charges/force line
-charge1 = Charge(0,0,0,.1, color.white, 5, -1)
-otherCharges = []
-charge2 = Charge(.5,.5,.5,.1, color.blue, 5, 1)
-otherCharges.append(charge2)
-charge3 = Charge (-.5,.5, -.5, .1, color.blue, 5, -1)
-otherCharges.append(charge3)
-charge4 = Charge(-.5, -.5, .5, .1, color.blue, 2.5, 1)
-otherCharges.append(charge4)
-Fnline = arrow(pos = vector(0,0,0), axis = vector(charge1.getNetFX(otherCharges)/100, charge1.getNetFY(otherCharges)/100, charge1.getNetFZ(otherCharges)/100), shaftwidth = .05)
+if __name__ == "__main__":
+	#Initial set-up of charges/force line
+	charge1 = Charge(0,0,0,.1, color.white, 5, -1)
+	otherCharges = []
+	charge2 = Charge(.5,.5,.5,.1, color.blue, 5, 1)
+	otherCharges.append(charge2)
+	charge3 = Charge (-.5,.5, -.5, .1, color.blue, 5, -1)
+	otherCharges.append(charge3)
+	charge4 = Charge(-.5, -.5, .5, .1, color.blue, 2.5, 1)
+	otherCharges.append(charge4)
+	Fnline = arrow(pos = vector(0,0,0), axis = vector(charge1.getNetFX(otherCharges)/100, charge1.getNetFY(otherCharges)/100, charge1.getNetFZ(otherCharges)/100), shaftwidth = .05)
 
-#animation
-t = 0
-while t <= 2*pi:
-	rate(2)
-	charge2.pos.x = .5*math.cos(t) + .5
-	charge2.pos.y = .5*math.sin(t) + .5
-	charge2.pos.z = .5*t + .5
-	charge3.pos.z = -.5 + t
-	Fnline.axis = vector(charge1.getNetFX(otherCharges)/100, charge1.getNetFY(otherCharges)/100, charge1.getNetFZ(otherCharges)/100)
-	t +=pi/6
-	if t > 2*pi:
-		t = 0
-		charge2.pos.x = 0
-		charge2.pos.y = 0
-		charge2.pos.z = 0
-		charge3.pos.z = -.5
+	#animation
+	t = 0
+	while t <= 2*pi:
+		rate(2)
+		charge2.pos.x = .5*math.cos(t) + .5
+		charge2.pos.y = .5*math.sin(t) + .5
+		charge2.pos.z = .5*t + .5
+		charge3.pos.z = -.5 + t
+		Fnline.axis = vector(charge1.getNetFX(otherCharges)/100, charge1.getNetFY(otherCharges)/100, charge1.getNetFZ(otherCharges)/100)
+		t +=pi/6
+		if t > 2*pi:
+			t = 0
+			charge2.pos.x = 0
+			charge2.pos.y = 0
+			charge2.pos.z = 0
+			charge3.pos.z = -.5
 	
 
 
